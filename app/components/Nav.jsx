@@ -1,7 +1,8 @@
-var React = require('react');
+import React from 'react'
 var {Link, IndexLink} = require('react-router');
+var createReactClass = require('create-react-class');
 
-var Nav = React.createClass ({
+var Nav = createReactClass ({
 
 	render: function () {
 		return (
@@ -19,7 +20,7 @@ var Nav = React.createClass ({
 			</div>
 			<div className='top-bar-right'>
 				<ul className='menu'>
-					<li className='menu-text'>Created By <a href="www.cristiandrodriguez.com" target='_blank'>Cristian Rodriguez</a>
+					<li className='menu-text'>Created By <a href="http://cristiandrodriguez.com/" target='_blank'>Cristian Rodriguez</a>
 					</li>
 				</ul>
 			</div>
