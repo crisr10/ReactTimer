@@ -1,5 +1,6 @@
-var React = require('react');
-var Nav = require('Nav');
+import React from 'react';
+import Nav from 'Nav';
+import PropTypes from 'prop-types';
 
 var Main = (props) => {
 	return (
@@ -13,6 +14,10 @@ var Main = (props) => {
 			</div>
 		</div>
 	)
+};
+
+Nav.PropTypes = {
+	text: PropTypes.string.isRequried
 };
 
 module.exports = Main;
