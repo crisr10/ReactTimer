@@ -19,8 +19,7 @@ var Nav = React.createClass ({
 			</div>
 			<div className='top-bar-right'>
 				<ul className='menu'>
-					<li className='menu-text'>
-						Created By <a href="cristiandrodriguez.com">Cristian Rodriguez</a>
+					<li className='menu-text'>Created By <a href="www.cristiandrodriguez.com" target='_blank'>Cristian Rodriguez</a>
 					</li>
 				</ul>
 			</div>
@@ -30,5 +29,3 @@ var Nav = React.createClass ({
 });
 
 module.exports = Nav;
-
-
