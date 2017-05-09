@@ -1,23 +1,17 @@
 import React from 'react';
 import Nav from 'Nav';
-import PropTypes from 'prop-types';
 
 var Main = (props) => {
 	return (
 		<div>
 		<Nav/>
-			<div>
-				<div>
-				<p>Main.jsx Rendered</p>
+			<div className='row'>
+				<div className='column small-centered medium-6 large-4'>
 					{props.children}
 				</div>
 			</div>
 		</div>
 	)
-};
-
-Nav.PropTypes = {
-	text: PropTypes.string.isRequried
 };
 
 module.exports = Main;
