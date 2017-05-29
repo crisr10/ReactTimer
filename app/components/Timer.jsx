@@ -6,13 +6,13 @@ var Timer = React.createClass({
 	getInitialState: function () {
 		return {
 			count: 0,
-			countdownStatus: 'paused'
+			timerStatus: 'paused'
 		};
 	},
 	componentDidUpdate: function(prevProps, prevState) {
 		// using countdownStatus because it is already required in the existing controllers, if I want to use something like timerStatus, I would have  to create another component with the right PropTypes
-		if(this.state.countdownStatus !== prevState.countdownStatus) {
-			switch (this.state.countdownStatus) {
+		if(this.state.timerStatus !== prevState.timerStatus) {
+			switch (this.state.timerStatus) {
 				case 'started':
 					this.startTimer();
 					break;
@@ -21,7 +21,7 @@ var Timer = React.createClass({
 					this.timer = undefined;
 					break;
 				case 'stopped':
-					this.setState({count: 0, countdownStatus: 'paused'});
+					this.setState({count: 0, timerStatus: 'paused'});
 			}
 		}
 	},
@@ -38,28 +38,29 @@ var Timer = React.createClass({
 			});
 		}, 1000);
 	},
-	handleSetCountdown: function(seconds) {
+	handleSetTimer: function(seconds) {
 		this.setState({
 			count: seconds,
-			countdownStatus: newStatus
+			timerStatus: 'started'
 		});
 	},
 	handleStatusChange: function (newStatus) {
 		this.setState({
-			countdownStatus: newStatus
+			timerStatus: newStatus
 		});
 	},
 	render: function() {
-		var {count, countdownStatus} = this.state;
+		var {count, timerStatus} = this.state;
 
 		return (
 			<div>
 				<h1 className='page-title'>Timer</h1>
 				<Clock totalSeconds={count}/>
-				<Controls countdownStatus={countdownStatus} onStatusChange={this.handleStatusChange}/>
+				<Controls timerStatus={timerStatus} onStatusChange={this.handleStatusChange}/>
 			</div>
 		)
 	}
 })
 
 module.exports = Timer;
+
