@@ -1,6 +1,7 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
-var Clock = React.createClass({
+var Clock = createReactClass({
 	getDefaultProps: function () {
 		totalSeconds: 0
 	},

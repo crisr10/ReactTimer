@@ -2,8 +2,9 @@ import React from 'react';
 import Clock from 'Clock';
 import CountdownForm from 'CountdownForm';
 import Controls from 'Controls';
+import reactCreateClass from 'create-react-class';
 
-var Countdown = React.createClass ({
+var Countdown = reactCreateClass({
 	getInitialState : function() {
 		return {
 			count: 0,
@@ -26,7 +27,6 @@ var Countdown = React.createClass ({
 		}
 	},
 	componentWillUnmount: function () {
-		console.log('componentDidUnmount');
 		clearInterval(this.timer);
 		this.timer = undefined;
 	},

@@ -1,6 +1,7 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
 
-var CountdownForm = React.createClass({
+var CountdownForm = createReactClass({
 	onSubmit: function (e) {
 		e.preventDefault();
 		var strSeconds = this.refs.seconds.value;

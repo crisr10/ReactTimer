@@ -11,40 +11,42 @@ describe('Timer', () => {
 		expect(Timer).toExist();
 	});
 
-	describe('handleSetTimer', () => {
-		it('should set state to started and timer', () => {
-			var timer = TestUtils.renderIntoDocument(<Timer/>);
-			timer.handleSetTimer(10);
+	it('should set state to started and start timer', (done) => {
+		var timer = TestUtils.renderIntoDocument(<Timer/>);
 
-			expect(timer.state.count).toBe(10);
+		timer.handleStatusChange('started');
+		expect(timer.state.count).toBe(0);
+
+		setTimeout(() => {
 			expect(timer.state.timerStatus).toBe('started');
+			expect(timer.state.count).toBe(1);
+			done();
+		}, 1001);
+	});
 
-			setTimeout(() => {
-				expect(timer.state.count).toBe(9);
-				done();
-			}, 1001);
-		});
+	it('should pause timer on paused status', (done) => {
+		var timer = TestUtils.renderIntoDocument(<Timer/>);
 
-		it('should pause timer on paused status', () => {
-			var timer = TestUtils.renderIntoDocument(<Timer/>);
-			timer.handleStatusChange('paused');
+		timer.handleSetTimer(10)
+		timer.handleStatusChange('paused');
 
-			setTimeout(() => {
-				expect(timer.state.count).toBe(2);
-				expect(timer.state.timerStatus).toBe('paused');
-				done();
-			}, 1001);
-		});
+		setTimeout(() => {
+			expect(timer.state.timerStatus).toBe('paused');
+			expect(timer.state.count).toBe(10)
+			done();
+		}, 1001);
+	});
 
-		it('should reset timer on stopped status', () => {
-			var timer = TestUtils.renderIntoDocument(<Timer/>);
-			timer.handleStatusChange('stopped');
+	it('should reset timer on stopped status', (done) => {
+		var timer = TestUtils.renderIntoDocument(<Timer/>);
 
-			setTimeout(() => {
-				expect(timer.state.count).toBe(0);
-				expect(timer.state.timerStatus).toBe('stopped');
-				done();
-			}, 1001);
-		});
-	})
+		timer.handleSetTimer(10)
+		timer.handleStatusChange('stopped');
+
+		setTimeout(() => {
+			expect(timer.state.count).toBe(0);
+			expect(timer.state.timerStatus).toBe('stopped');
+			done();
+		}, 1001);
+	});
 });
