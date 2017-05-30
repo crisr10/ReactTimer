@@ -10,11 +10,17 @@ module.exports = {
 	externals: {
 		jquery: 'jQuery'
 	},
-	plugins: [
+		plugins: [
 		new webpack.ProvidePlugin({
 			'$': 'jquery',
 			'jQuery': 'jquery'
-		})
+		}),
+		new webpack.DefinePlugin({
+		  'process.env': {
+		    NODE_ENV: JSON.stringify('production')
+		  }
+		}),
+		new webpack.optimize.UglifyJsPlugin()
 	],
 	output: {
 		path: __dirname,
