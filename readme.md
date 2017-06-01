@@ -1,7 +1,7 @@
 # React Timer
 Timer and Countdown application made in React js. In the nav bar there are routes to both the timer page and the countdown page. 
 
-* [Live Demo](https://git.heroku.com/reacttimerapp-cris.git)
+* [Live Demo](http://reacttimerapp-cris.herokuapp.com)
 
 ## Usage
 In the nav bar there are routes to both the timer page and the countdown page. 
