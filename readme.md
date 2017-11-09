@@ -1,11 +1,7 @@
 # React Timer
 Timer and Countdown application made in React.js.
 
-* [Live Demo](http://reacttimerapp-cris.herokuapp.com)
-
-## Usage
-In the nav bar there are routes to both the timer page and the countdown page. 
-Timer gets started with the Start button. You can then pause the timer or clear it to start again. Add seconds to the countdown form to start it. You can pause it and clear the timer to start a new countdown. 
+* [Live Demo](http://reacttimerapp-cris.herokuapp.com) 
 
 ## Getting Started
 1. Clone the repo to your local machine. 
