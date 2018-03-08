@@ -4,7 +4,7 @@ import Controls from 'Controls';
 import createReactClass from 'create-react-class';
 
 var Timer = createReactClass({
-	getInitialState: function () {
+	getInitialState() {
 		return {
 			count: 0,
 			timerStatus: 'stopped'
